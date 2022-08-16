@@ -14,7 +14,7 @@ import (
 const serverPort = 8080
 const qpsKey = "limit:qps"
 const queryKey = "limit:query"
-const qpsLimit = 10
+const qpsLimit = 50
 const queryLimit = 100
 const resultPath = "results"
 

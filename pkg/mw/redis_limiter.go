@@ -1,4 +1,4 @@
-package localmw
+package mw
 
 import (
 	"context"

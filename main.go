@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"okapi-public-api/pkg/localmw"
+	"okapi-public-api/pkg/mw"
 	"strconv"
 	"time"
 
@@ -33,8 +33,8 @@ func main() {
 	log.Printf("QPS limit :%d\n", qpsLimit)
 	log.Printf("Overall query limit :%d\n", queryLimit)
 
-	router.GET("/v1/test-limiter", localmw.LimitPerUser(cmd, qpsLimit, "limit:qps", time.Second*1),
-		localmw.LimitPerUser(cmd, queryLimit, "limit:query", 0), func(c *gin.Context) {
+	router.GET("/v1/test-limiter", mw.LimitPerUser(cmd, qpsLimit, "limit:qps", time.Second*1),
+		mw.LimitPerUser(cmd, queryLimit, "limit:query", 0), func(c *gin.Context) {
 			log.Print("Calling /v1/test-limiter")
 			c.Status(http.StatusOK)
 
