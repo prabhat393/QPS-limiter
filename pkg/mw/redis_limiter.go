@@ -2,7 +2,6 @@ package mw
 
 import (
 	"context"
-	"strings"
 	"time"
 
 	"github.com/go-redis/redis/v8"
@@ -31,7 +30,7 @@ type RedisLimiter struct {
 // Allow checks if user is allowed to continue depending on limit
 func (rl *RedisLimiter) Allow(ctx context.Context, key string) (bool, error) {
 
-	if strings.HasPrefix(key, "limit:qps") {
+	if rl.expire != 0 {
 		ttl := rl.cmdable.PTTL(ctx, key).Val()
 		if ttl.Milliseconds() < 10 {
 			rl.cmdable.Del(ctx, key)
