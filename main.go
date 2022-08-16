@@ -1,10 +1,10 @@
 package main
 
 import (
+	"QPS-limiter/pkg/mw"
 	"fmt"
 	"log"
 	"net/http"
-	"okapi-public-api/pkg/mw"
 	"strconv"
 	"time"
 

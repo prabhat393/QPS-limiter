@@ -1,4 +1,4 @@
-module okapi-public-api
+module QPS-limiter
 
 go 1.18
 
