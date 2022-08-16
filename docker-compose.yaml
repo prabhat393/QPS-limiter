@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - 8080:3000
+    env_file: 
+      - ./.env
+    depends_on:
+      - redis
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+    
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
