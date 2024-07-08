@@ -6,7 +6,6 @@ Due to the [EXPIRE passive behaviour](https://redis.io/commands/expire/), we wer
 So, we also added TTL check for the key using [PTTL](https://redis.io/commands/pttl/) and deleting it using [DEL](https://redis.io/commands/del/), if the TTL is approaching its expiry.
 
 
-
 ## How to work with this repo
 
 1. Set the following env variables in a `.env` file in the project root directory:
